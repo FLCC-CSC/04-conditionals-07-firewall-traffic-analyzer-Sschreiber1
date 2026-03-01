@@ -11,24 +11,45 @@
 # 3. Be sure to answer the Reflection Questions and Attestation below
 # 4. The Sample Output has been included in this code for your convenience
 
+########################################
+def assess_risk(port, size_mb):
+    # Basic risk rules based on your examples
+    if port == 80:
+        if size_mb > 100:
+            return "MEDIUM RISK: Large unencrypted data transfer detected."
+        else:
+            return "LOW RISK: Normal HTTP traffic."
+    elif port == 22:
+        if size_mb > 10:
+            return "HIGH RISK: Potential unauthorized remote access detected!"
+        else:
+            return "MEDIUM RISK: SSH activity detected."
+    elif port == 443:
+        return "LOW RISK: Secure encrypted transfer detected."
+    else:
+        return "UNKNOWN: Unrecognized traffic pattern."
 
 
-########## ENTER YER CODE BELOW THIS LINE ##########
-print("=== Network Traffic Security Analyzer ===")
-port = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
-size = int(input("Enter the data transfer size in megabytes (MB): "))
+def run_analyzer():
+    print("=== Network Traffic Security Analyzer ===")
+    port = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
+    size_mb = int(input("Enter the data transfer size in megabytes (MB): "))
 
-print(f"FIREWALL LOG: Port: {port}, Transfer Size: {size} MB")
+    risk = assess_risk(port, size_mb)
 
-if port == 443:
-    print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
-elif port in [22, 3389]:
-    print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
-elif port == 80 and size >= 101:
-    print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
-else:
-    print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
-print("------------------------")
+    print("\nFIREWALL LOG:")
+    print(f"Port: {port}, Transfer Size: {size_mb} MB")
+    print(f"Risk Assessment: {risk}")
+    print("------------------------\n")
+
+
+# Run the analyzer repeatedly (optional)
+if __name__ == "__main__":
+    while True:
+        run_analyzer()
+
+########################################
+
 ########################################
 #          SAMPLE OUTPUT
 ########################################
