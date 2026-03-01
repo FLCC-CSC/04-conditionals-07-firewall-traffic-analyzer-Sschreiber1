@@ -25,12 +25,6 @@ elif port == 80 and size > 100:
     print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
 else:
     print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
-########### END YER CODE ABOVE THIS LINE ###########
-
-    
-
-
-
 ########################################
 #          SAMPLE OUTPUT
 ########################################
