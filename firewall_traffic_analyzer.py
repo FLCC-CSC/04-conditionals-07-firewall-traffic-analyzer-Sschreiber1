@@ -32,15 +32,11 @@ def assess_risk(port, size_mb):
     return "UNKNOWN: Unrecognized traffic pattern."
 
 
-def run_analyzer():
-    print("=== Network Traffic Security Analyzer ===")
-    port = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
-    size_mb = int(input("Enter the data transfer size in megabytes (MB): "))
-
+if __name__ == "__main__":
+    port = int(input())
+    size_mb = int(input())
     risk = assess_risk(port, size_mb)
-
     print(f"Risk Assessment: {risk}")
-
 ########################################
 
 ########################################
