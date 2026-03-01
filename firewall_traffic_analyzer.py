@@ -1,8 +1,8 @@
 # FILE NAME - firewall_traffic_analyzer.py
 
-# NAME: 
-# DATE: 
-# BRIEF DESCRIPTION:  
+# NAME: Steven Schreiber
+# DATE: 2/27/2026
+# BRIEF DESCRIPTION: Creating a firewall trafic analyzer. 
 
 
 
@@ -14,7 +14,26 @@
 
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
+print("=== Network Traffic Security Analyzer ===")
+print()
 
+port = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
+size = int(input("Enter the data transfer size in megabytes (MB): "))
+
+print()
+print("FIREWALL LOG:")
+print("Port:", port, ", Transfer Size:", size, "MB", sep="")
+
+if port == 80 and size > 100:
+    print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
+elif port == 22:
+    print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
+elif port == 443:
+    print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
+else:
+    print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
+
+print("------------------------")
 
 
 
@@ -89,7 +108,7 @@ Risk Assessment: UNKNOWN: Unrecognized traffic pattern.
 '''
 
 1. Did you get tripped up using the `or` or `and` operators? If so, how?
-
+I had to be careful when using "or" and "and" because they mean different things. "and" requires both conditions to be true, while "or" only needs one.
 
 
 
