@@ -14,9 +14,6 @@
 
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
-# Network Traffic Security Analyzer
-# Run this script and enter port and data size to get risk assessment.
-
 print("=== Network Traffic Security Analyzer ===")
 
 port_str = input("Enter the port number (e.g., 80, 22, 443, 3389): ")
