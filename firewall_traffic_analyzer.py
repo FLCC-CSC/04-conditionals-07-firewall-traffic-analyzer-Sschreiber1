@@ -16,7 +16,6 @@
 ########## ENTER YER CODE BELOW THIS LINE ##########
 port = int(input())
 size = int(input())
-
 if port == 22 or port == 3389:
     print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
 elif port == 443:
