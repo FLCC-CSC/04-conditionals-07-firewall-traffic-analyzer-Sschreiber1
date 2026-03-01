@@ -14,8 +14,6 @@
 
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
-print("=== Network Traffic Security Analyzer ===")
-print()
 port = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
 size = int(input("Enter the data transfer size in megabytes (MB): "))
 
@@ -27,7 +25,6 @@ elif port == 80 and size > 100:
     print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
 else:
     print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
-
 
 
 ########### END YER CODE ABOVE THIS LINE ###########
