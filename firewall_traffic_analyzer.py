@@ -13,21 +13,23 @@
 
 ########################################
 def assess_risk(port, size_mb):
-    # Basic risk rules based on your examples
+    # Port 22 and 3389 are always HIGH RISK
+    if port == 22 or port == 3389:
+        return "HIGH RISK: Potential unauthorized remote access detected!"
+
+    # Port 80 logic
     if port == 80:
         if size_mb > 100:
             return "MEDIUM RISK: Large unencrypted data transfer detected."
         else:
-            return "LOW RISK: Normal HTTP traffic."
-    elif port == 22:
-        if size_mb > 10:
-            return "HIGH RISK: Potential unauthorized remote access detected!"
-        else:
-            return "MEDIUM RISK: SSH activity detected."
-    elif port == 443:
+            return "UNKNOWN: Unrecognized traffic pattern."
+
+    # Port 443 is always LOW RISK
+    if port == 443:
         return "LOW RISK: Secure encrypted transfer detected."
-    else:
-        return "UNKNOWN: Unrecognized traffic pattern."
+
+    # All other ports
+    return "UNKNOWN: Unrecognized traffic pattern."
 
 
 def run_analyzer():
@@ -37,16 +39,7 @@ def run_analyzer():
 
     risk = assess_risk(port, size_mb)
 
-    print("\nFIREWALL LOG:")
-    print(f"Port: {port}, Transfer Size: {size_mb} MB")
     print(f"Risk Assessment: {risk}")
-    print("------------------------\n")
-
-
-# Run the analyzer repeatedly (optional)
-if __name__ == "__main__":
-    while True:
-        run_analyzer()
 
 ########################################
 
