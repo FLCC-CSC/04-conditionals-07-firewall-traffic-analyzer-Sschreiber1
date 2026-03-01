@@ -15,34 +15,20 @@
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
 print("=== Network Traffic Security Analyzer ===")
+port = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
+size = int(input("Enter the data transfer size in megabytes (MB): "))
 
-port_str = input("Enter the port number (e.g., 80, 22, 443, 3389): ")
-size_str = input("Enter the data transfer size in megabytes (MB): ")
+print(f"FIREWALL LOG: Port: {port}, Transfer Size: {size} MB")
 
-try:
-    port = int(port_str.strip())
-    size = int(size_str.strip())
-except ValueError:
-    print("Invalid input. Please enter integers.")
-    exit(1)
-
-# Risk assessment logic based on observed patterns
-risk_rules = {
-    80: ("MEDIUM", "Large unencrypted data transfer detected."),
-    22: ("HIGH", "Potential unauthorized remote access detected!"),
-    443: ("LOW", "Secure encrypted transfer detected.")
-}
-
-if port in risk_rules:
-    risk_level, reason = risk_rules[port]
-    print(f"FIREWALL LOG: Port: {port}, Transfer Size: {size} MB")
-    print(f"Risk Assessment: {risk_level} RISK: {reason}")
+if port == 443:
+    print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
+elif port in [22, 3389]:
+    print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
+elif port == 80 and size >= 101:
+    print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
 else:
-    print(f"FIREWALL LOG: Port: {port}, Transfer Size: {size} MB")
-    print("Risk Assessment: UNKNOWN RISK: Unrecognized traffic pattern.")
-
+    print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
 print("------------------------")
-
 ########################################
 #          SAMPLE OUTPUT
 ########################################
