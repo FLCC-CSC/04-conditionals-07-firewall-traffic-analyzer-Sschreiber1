@@ -14,14 +14,14 @@
 
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
-port = int(input())
-size = int(input())
+port = input().strip()
+size = input().strip()
 
-if port == 22 or port == 3389:
+if port == "22" or port == "3389":
     print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
-elif port == 443:
+elif port == "443":
     print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
-elif port == 80 and size > 100:
+elif port == "80" and int(size) > 100:
     print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
 else:
     print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
