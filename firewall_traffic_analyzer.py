@@ -84,7 +84,7 @@ Risk Assessment: UNKNOWN: Unrecognized traffic pattern.
 '''
 
 1. Did you get tripped up using the `or` or `and` operators? If so, how?
-I had to be careful when using "or" and "and" because they mean different things. "and" requires both conditions to be true, while "or" only needs one.
+I had to be careful when using "or" and "and" because they mean different things. "and" requires both conditions to be true, while "or" only needs one
 
 
 
