@@ -36,7 +36,6 @@ else:
 
 print(f"Risk Assessment: {risk}")
 print("------------------------")
-
 ########### END YER CODE ABOVE THIS LINE ###########
 
     
